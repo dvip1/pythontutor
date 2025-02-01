@@ -2,13 +2,15 @@
 
 import { SetStateAction, useState } from "react"
 import { userInformationQuestions } from "@/utils/aboutUser"
+import { Progress } from "@heroui/progress";
 
 interface quetionPageInterface {
     keys: string
     onNext: (answer: string) => void
     index: number
+    total: number
 }
-const FillInTheAnswer = ({ keys, onNext, index }: quetionPageInterface) => {
+const FillInTheAnswer = ({ keys, onNext, index, total }: quetionPageInterface) => {
     const [answer, setAnswer] = useState<string>("");
     console.log("thsi is they key", keys);
     const handleInputChange = (event: { target: { value: SetStateAction<string>; }; }) => {
@@ -38,13 +40,16 @@ const FillInTheAnswer = ({ keys, onNext, index }: quetionPageInterface) => {
                     </div>
                 </div>
 
-                <div className=" p-4 rounded mb-4">
-                    Div C (Bottom Center)
+                <div className=" p-4 rounded mb-4 flex items-center  w-full ">
+                    <span className="w-full flex justify-center items-center">
+                        <Progress aria-label="Loading..." className="max-w-sm" value={(index * 100) / total} />
+                    </span>
                 </div>
             </div>
         </div>
     );
 }
+
 export {
     FillInTheAnswer
 }

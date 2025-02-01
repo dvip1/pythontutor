@@ -29,7 +29,7 @@ export default function Page() {
 
     return (quetionIndex >= userInformationItems.length) ? <Dashboard /> : (
         <>
-            <FillInTheAnswer index={quetionIndex} keys={userInformationItems[quetionIndex]} onNext={handleNext} />
+            <FillInTheAnswer total={userInformationItems.length} index={quetionIndex} keys={userInformationItems[quetionIndex]} onNext={handleNext} />
         </>
     );
 }
