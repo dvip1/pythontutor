@@ -1,6 +1,5 @@
 "use client"
 import { useRouter } from 'next/navigation'
-import defaultColors from '@/ui/background';
 import { getQuickSand } from '@/ui/fonts';
 
 export default function LandingPage() {
