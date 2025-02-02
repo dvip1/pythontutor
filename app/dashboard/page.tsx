@@ -9,21 +9,20 @@ import { FaLock } from "react-icons/fa";
 import { useRouter } from "next/navigation"
 
 export default function Page() {
-    const newLocal = new LocalStorageItem();
     const [quetionIndex, setQuetionIndex] = useState<number>(0);
-
     const handleNext = (answer: string) => {
+        const newLocal = new LocalStorageItem();
         newLocal.setItem(userInformationItems[quetionIndex], answer);
         setQuetionIndex(prev => prev + 1);
 
     }
     useEffect(() => {
+        const newLocal = new LocalStorageItem();
         for (let i = 0; i < userInformationItems.length; i++) {
             if (!newLocal.hasItem(userInformationItems[i])) {
                 setQuetionIndex(i);
                 return;
             }
-
         }
         setQuetionIndex(userInformationItems.length)
     }, []);

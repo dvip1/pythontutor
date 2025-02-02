@@ -6,6 +6,7 @@ import axios from "axios";
 import { Introduction } from "./lessonData";
 import { LessonPages } from "@/components/quetionpage";
 import { useState } from "react";
+import Link from "next/link";
 
 interface Statement {
     statement1?: string;
@@ -40,7 +41,7 @@ export default function Page({ params }: { params: Promise<PageParams> }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                let response = await axios.post<ApiResponse>("/api/gemini", Introduction, {
+                const response = await axios.post<ApiResponse>("/api/gemini", Introduction, {
                     headers: {
                         "Content-Type": "application/json"
                     }
@@ -77,13 +78,13 @@ export default function Page({ params }: { params: Promise<PageParams> }) {
             <>
                 <h1> THat one was one demo that I managed to make in 3 hours!! using nextjs(server + frontend)</h1>
                 <br />
-                <a href="/">go back to home</a>
+                <Link href="/">go back to home</Link>
                 <br />
                 <p>TO check this lesson again, do a refresh! </p>
-                <p>Here's my github link: <a href="https://github.com">github</a></p>
-                <p>Here's the project's link: <a href="https://github.com/dvip1/pythontutor">pythontutor</a></p>
-                <p>here is my another hosted project:  <a href="https://github.com/dvip1/qualityReads">qualityReads</a></p>
-                <p><strong>My Resume:</strong> <a href="https://docs.google.com/document/d/1X4CWfAnt2v9La3k_swj-2HKR8qXvDB3Y/edit?usp=sharing&ouid=103931453225068697144&rtpof=true&sd=true">link</a></p>
+                <p>Here my github link: <Link href="https://github.com">github</Link></p>
+                <p>Here the projects link: <Link href="https://github.com/dvip1/pythontutor">pythontutor</Link></p>
+                <p>here is my another hosted project:  <Link href="https://github.com/dvip1/qualityReads">qualityReads</Link></p>
+                <p><strong>My Resume:</strong> <Link href="https://docs.google.com/document/d/1X4CWfAnt2v9La3k_swj-2HKR8qXvDB3Y/edit?usp=sharing&ouid=103931453225068697144&rtpof=true&sd=true">link</Link></p>
 
             </>
         )

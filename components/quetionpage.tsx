@@ -12,7 +12,7 @@ interface quetionPageInterface {
     question?: string
 }
 
-const FillInTheAnswer = ({ keys, onNext, index, total }: quetionPageInterface) => {
+const FillInTheAnswer = ({ onNext, index, total }: quetionPageInterface) => {
     const [answer, setAnswer] = useState<string>("");
     const handleInputChange = (event: { target: { value: SetStateAction<string>; }; }) => {
         setAnswer(event.target.value)
@@ -53,9 +53,6 @@ const FillInTheAnswer = ({ keys, onNext, index, total }: quetionPageInterface) =
 
 const LessonPages = ({ onNext, index, total, question }: quetionPageInterface) => {
     const [answer, setAnswer] = useState<string>("");
-    const handleInputChange = (event: { target: { value: SetStateAction<string>; }; }) => {
-        setAnswer(event.target.value)
-    }
     const handleClick = () => {
         onNext(answer);
         setAnswer("")
@@ -85,7 +82,7 @@ const LessonPages = ({ onNext, index, total, question }: quetionPageInterface) =
                 <div className=" p-4 rounded mb-4 flex items-center  w-full ">
                     <span className="w-full flex   flex-col justify-center items-center">
                         <Progress aria-label="Loading..." className="max-w-sm" value={(index * 100) / total} />
-                        <p className="text-sm"> tip: try refresing if it doesn't display anything or open in another tab</p>
+                        <p className="text-sm"> tip: try refresing if it doesnt display anything or open in another tab</p>
                     </span>
                 </div>
 
