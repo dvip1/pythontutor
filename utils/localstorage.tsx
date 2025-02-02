@@ -13,9 +13,8 @@ export class LocalStorageItem {
     getItem(key: string) {
         try {
             const item = localStorage.getItem(key);
-            if (item)
-                return JSON.parse(item)
-            else return item;
+            console.log("this is item" + item + typeof (item))
+            return item;
         } catch (error) {
             console.error('Error getting localStorage item:', error);
             return null;

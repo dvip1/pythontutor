@@ -6,6 +6,7 @@ import { userInformationItems } from "@/utils/aboutUser"
 import { getQuickSand } from '@/ui/fonts';
 import { ImBooks } from "react-icons/im";
 import { FaLock } from "react-icons/fa";
+import { useRouter } from "next/navigation"
 
 export default function Page() {
     const newLocal = new LocalStorageItem();
@@ -60,8 +61,10 @@ interface chapterInterface {
     isLocked: boolean
 }
 const Chapters = ({ chaptername, isLocked }: chapterInterface) => {
+    const router = useRouter();
+
     return <>
-        <div className="bg-white min-w-96 py-4 px-2 rounded-xl flex justify-between mt-3 border-2 border-slate-500 border-solid">
+        <div className="bg-white min-w-96 py-4 px-2 rounded-xl flex justify-between mt-3 border-2 border-slate-500 border-solid cursor-pointer" onClick={() => router.push(`/chapter/${chaptername}`)}>
             <h1 className="">{chaptername}</h1>
             <p className=""> {isLocked ? <FaLock /> : ""}</p>
         </div>
